@@ -21,12 +21,43 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 1个
+- 已完成: 2个
 - 进行中: 0个
-- 待处理: 41个
+- 待处理: 40个
 
 ### 当前状态:
-Task 1 已完成，准备开始 Task 2: 前端项目初始化
+Task 2 已完成，准备开始 Task 3: 数据库初始化
+
+---
+
+## 2026-02-27 - Task ID: 2 - 前端项目初始化
+
+### What was done:
+- 使用 Vite 创建 Vue3 + TypeScript 项目
+- 安装依赖：vue-router、pinia、axios、element-plus、pinia-plugin-persistedstate
+- 配置 vite.config.ts（代理、别名、Element Plus按需导入）
+- 配置 tsconfig.app.json（路径别名）
+- 创建目录结构：api/、assets/、components/、composables/、layouts/、router/、stores/、types/、utils/、views/
+- 创建用户类型定义（UserInfo、LoginForm、LoginResponse）
+- 创建通用类型定义（Result、PageResult、PageQuery）
+- 创建 Pinia Store（user store with persistence）
+- 创建路由配置（路由守卫、基础路由）
+- 创建布局组件：
+  - DefaultLayout.vue（侧边栏、头部、面包屑、用户下拉菜单）
+  - BlankLayout.vue
+- 创建页面组件：
+  - login/index.vue（登录页面）
+  - dashboard/index.vue（仪表盘页面）
+  - error/404.vue（404错误页面）
+
+### Testing:
+- npm run build 构建成功
+- TypeScript 类型检查通过
+
+### Notes:
+- Element Plus 使用 unplugin-auto-import 和 unplugin-vue-components 实现按需导入
+- 用户状态使用 pinia-plugin-persistedstate 持久化到 localStorage
+- 登录功能目前使用 mock 数据，需要后端 API 后对接
 
 ---
 

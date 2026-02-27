@@ -46,7 +46,7 @@
         "创建基础布局组件：default-layout、blank-layout",
         "配置路由守卫和基础路由"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 3,
