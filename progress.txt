@@ -21,12 +21,48 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 6个
+- 已完成: 8个
 - 进行中: 0个
-- 待处理: 36个
+- 待处理: 34个
 
 ### 当前状态:
-Tasks 5 & 6 已完成，准备开始 Task 7: 认证服务 - OAuth2配置
+Tasks 7 & 8 已完成，准备开始 Task 9: 认证服务 - 用户管理API
+
+---
+
+## 2026-02-27 - Task ID: 7 & 8 - 认证服务配置
+
+### What was done:
+**Task 7 - OAuth2配置:**
+- JwtUtils: JWT Token 生成和解析工具类
+  - generateAccessToken: 生成访问令牌 (2小时有效)
+  - generateRefreshToken: 生成刷新令牌 (7天有效)
+  - validateToken: 验证令牌有效性
+  - parseToken: 解析令牌获取用户信息
+- PasswordConfig: BCrypt密码加密器
+- UserInfo: 用户认证信息载体
+
+**Task 8 - JWT资源服务:**
+- SecurityConfig: Spring Security配置
+  - 禁用CSRF，使用无状态会话
+  - 配置白名单路径
+  - 添加JWT认证过滤器
+- JwtAuthenticationFilter: JWT认证过滤器
+  - 从请求头提取Bearer Token
+  - 验证并解析Token
+  - 设置认证信息到SecurityContext
+- SecurityUtils: 安全上下文工具类
+  - getCurrentUserId: 获取当前用户ID
+  - getCurrentUsername: 获取当前用户名
+  - isAuthenticated: 判断是否已认证
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 使用 HMAC-SHA256 签名算法
+- JWT密钥配置在 JwtUtils 中，生产环境应从配置文件读取
+- 认证流程：用户登录 -> 生成JWT -> 前端存储Token -> 后续请求携带Token -> Filter验证
 
 ---
 

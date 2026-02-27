@@ -142,7 +142,7 @@
         "配置密码加密器",
         "编写测试验证Token生成"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 8,
@@ -157,6 +157,8 @@
         "配置白名单路径（登录、注册、公开API）",
         "编写测试验证Token验证"
       ],
+      "passes": true
+    },
       "passes": false
     },
     {
