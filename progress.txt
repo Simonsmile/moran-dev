@@ -21,12 +21,36 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 3个
+- 已完成: 6个
 - 进行中: 0个
-- 待处理: 39个
+- 待处理: 36个
 
 ### 当前状态:
-Task 3 已完成，准备开始 Task 4: 公共模块 - 统一响应和异常 (已在Task 1中完成)
+Tasks 5 & 6 已完成，准备开始 Task 7: 认证服务 - OAuth2配置
+
+---
+
+## 2026-02-27 - Task ID: 5 & 6 - 公共模块配置补充
+
+### What was done:
+**Task 5 - MyBatis Plus配置补充:**
+- 已在 Task 1 中创建 BaseEntity, MybatisPlusConfig, JsonTypeHandler
+- 本次补充: 直接使用 MyBatis Plus 提供的 BaseMapper，无需自定义
+
+**Task 6 - Redis配置补充:**
+- 已在 Task 1 中创建 RedisConfig, RedisService
+- 本次补充:
+  - RedissonConfig 配置类
+  - @DistributedLock 注解
+  - DistributedLockAspect 切面（支持SpEL表达式）
+  - CacheUtil 缓存工具类
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- DistributedLock 支持等待时间和租约时间配置
+- CacheUtil 提供缓存穿透保护（双重检查锁）
 
 ---
 

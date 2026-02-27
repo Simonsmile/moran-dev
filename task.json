@@ -110,7 +110,7 @@
         "创建自定义类型处理器（JSON类型）",
         "编写测试验证审计功能"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 6,
@@ -125,7 +125,7 @@
         "实现缓存工具类（CacheUtil）",
         "编写测试验证Redis操作"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 7,
