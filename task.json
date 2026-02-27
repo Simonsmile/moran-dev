@@ -78,7 +78,7 @@
         "创建必要的索引和外键约束",
         "编写 Liquibase/Flyway 迁移脚本"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 4,
@@ -94,7 +94,7 @@
         "处理其他运行时异常",
         "编写单元测试验证异常处理"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 5,
