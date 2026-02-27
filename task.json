@@ -1,0 +1,751 @@
+{
+  "project": "Moran ERP",
+  "description": "珠宝行业ERP系统 - 微服务架构",
+  "tasks": [
+    {
+      "id": 1,
+      "title": "后端项目初始化",
+      "description": "创建后端Maven多模块项目结构",
+      "steps": [
+        "创建父POM moran-erp，配置Java 21、Spring Boot 3.4、Spring Cloud依赖管理",
+        "创建 moran-common 模块（公共工具类）",
+        "创建 moran-common-core 子模块（核心工具、统一响应、异常处理）",
+        "创建 moran-common-redis 子模块（Redis配置、分布式锁）",
+        "创建 moran-common-security 子模块（OAuth2+JWT安全配置）",
+        "创建 moran-common-mybatis 子模块（MyBatis Plus配置、分页、审计）",
+        "创建 moran-gateway 模块（API网关）",
+        "创建 moran-auth 模块（认证服务）",
+        "创建 moran-business 模块（核心业务服务）",
+        "创建 moran-external 模块（外部对接服务）",
+        "创建 moran-api 模块（Feign接口定义）",
+        "配置各模块的 pom.xml 依赖关系"
+      ],
+      "passes": false
+    },
+    {
+      "id": 2,
+      "title": "前端项目初始化",
+      "description": "创建Vue3前端项目结构",
+      "steps": [
+        "使用 Vite 创建 Vue3 + TypeScript 项目 moran-web",
+        "安装依赖：vue-router、pinia、axios、element-plus",
+        "配置 vite.config.ts（代理、别名、构建）",
+        "配置 tsconfig.json（严格模式、路径别名）",
+        "创建目录结构：api/、assets/、components/、composables/、layouts/、router/、stores/、types/、utils/、views/",
+        "配置 Element Plus 按需导入",
+        "创建基础布局组件：default-layout、blank-layout",
+        "配置路由守卫和基础路由"
+      ],
+      "passes": false
+    },
+    {
+      "id": 3,
+      "title": "数据库初始化",
+      "description": "创建PostgreSQL数据库表结构",
+      "steps": [
+        "创建 sys_user 用户表",
+        "创建 sys_role 角色表",
+        "创建 sys_permission 权限表（菜单、按钮、API）",
+        "创建 sys_user_role 用户角色关联表",
+        "创建 sys_role_permission 角色权限关联表",
+        "创建 sys_department 部门表（树形结构）",
+        "创建 base_brand 品牌表",
+        "创建 base_product 产品表(SPU)",
+        "创建 base_product_spec 产品规格表(SKU)",
+        "创建 base_material 物料表",
+        "创建 base_bom 和 base_bom_item BOM表",
+        "创建 inv_warehouse 仓库表",
+        "创建 inv_inventory 库存表",
+        "创建 inv_stock_in 入库单表",
+        "创建 inv_stock_in_item 入库单明细表",
+        "创建 inv_stock_out 出库单表",
+        "创建 inv_stock_out_item 出库单明细表",
+        "创建 inv_stock_log 库存流水表",
+        "创建 wf_definition 工作流定义表",
+        "创建 wf_status 工作流状态表",
+        "创建 wf_action 工作流动作表",
+        "创建 wf_transition 状态转换表",
+        "创建必要的索引和外键约束",
+        "编写 Liquibase/Flyway 迁移脚本"
+      ],
+      "passes": false
+    },
+    {
+      "id": 4,
+      "title": "公共模块 - 统一响应和异常",
+      "description": "实现统一响应格式和全局异常处理",
+      "steps": [
+        "创建 Result<T> 统一响应类（code、message、data、timestamp）",
+        "创建 ResultCode 枚举（成功、失败、参数错误、未授权、禁止访问、资源不存在、服务器错误）",
+        "创建 BusinessException 业务异常类",
+        "创建 GlobalExceptionHandler 全局异常处理器",
+        "处理参数校验异常（MethodArgumentNotValidException）",
+        "处理业务异常（BusinessException）",
+        "处理其他运行时异常",
+        "编写单元测试验证异常处理"
+      ],
+      "passes": false
+    },
+    {
+      "id": 5,
+      "title": "公共模块 - MyBatis Plus配置",
+      "description": "配置MyBatis Plus和审计功能",
+      "steps": [
+        "配置 MyBatis Plus 分页插件",
+        "配置乐观锁插件",
+        "创建 BaseEntity 基础实体（id、created_at、updated_at、created_by、updated_by、deleted、version）",
+        "实现自动填充处理器（创建时间、更新时间、创建人、更新人）",
+        "实现逻辑删除处理器",
+        "创建 BaseMapper 基础Mapper接口",
+        "创建自定义类型处理器（JSON类型）",
+        "编写测试验证审计功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 6,
+      "title": "公共模块 - Redis配置",
+      "description": "配置Redis缓存和分布式锁",
+      "steps": [
+        "配置 Redis 连接（host、port、password、database）",
+        "配置 Redis 序列化（Key使用String、Value使用JSON）",
+        "创建 RedisService 服务类（get、set、delete、expire、hasKey）",
+        "创建 Redisson 配置（分布式锁）",
+        "创建 DistributedLock 注解和切面",
+        "实现缓存工具类（CacheUtil）",
+        "编写测试验证Redis操作"
+      ],
+      "passes": false
+    },
+    {
+      "id": 7,
+      "title": "认证服务 - OAuth2配置",
+      "description": "配置Spring Security OAuth2认证服务",
+      "steps": [
+        "配置 AuthorizationServer（授权服务器）",
+        "配置密码模式认证",
+        "配置 JWT Token 生成器（AccessToken、RefreshToken）",
+        "配置 JWT 签名密钥（RSA或对称密钥）",
+        "配置 Token 存储策略",
+        "配置客户端详情服务",
+        "实现 UserDetailsService（用户认证）",
+        "配置密码加密器",
+        "编写测试验证Token生成"
+      ],
+      "passes": false
+    },
+    {
+      "id": 8,
+      "title": "认证服务 - JWT资源服务",
+      "description": "配置JWT资源服务验证",
+      "steps": [
+        "配置 ResourceServer（资源服务器）",
+        "配置 JWT 解析器（公钥验证）",
+        "配置权限表达式",
+        "创建 JwtAuthenticationConverter（提取用户信息）",
+        "创建 SecurityUtils 工具类（获取当前用户）",
+        "配置白名单路径（登录、注册、公开API）",
+        "编写测试验证Token验证"
+      ],
+      "passes": false
+    },
+    {
+      "id": 9,
+      "title": "认证服务 - 用户管理API",
+      "description": "实现用户增删改查API",
+      "steps": [
+        "创建 User 实体类",
+        "创建 UserMapper 数据访问层",
+        "创建 UserService 服务层（CRUD、密码加密、状态管理）",
+        "创建 UserController 控制器",
+        "POST /api/users 创建用户",
+        "GET /api/users 分页查询用户",
+        "GET /api/users/{id} 获取用户详情",
+        "PUT /api/users/{id} 更新用户",
+        "DELETE /api/users/{id} 删除用户（逻辑删除）",
+        "POST /api/users/{id}/reset-password 重置密码",
+        "配置 Swagger/OpenAPI 文档",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 10,
+      "title": "认证服务 - 角色管理API",
+      "description": "实现角色增删改查API",
+      "steps": [
+        "创建 Role 实体类",
+        "创建 RoleMapper 数据访问层",
+        "创建 RoleService 服务层",
+        "创建 RoleController 控制器",
+        "POST /api/roles 创建角色",
+        "GET /api/roles 分页查询角色",
+        "GET /api/roles/{id} 获取角色详情",
+        "PUT /api/roles/{id} 更新角色",
+        "DELETE /api/roles/{id} 删除角色",
+        "POST /api/roles/{id}/permissions 分配权限",
+        "GET /api/roles/{id}/permissions 获取角色权限",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 11,
+      "title": "认证服务 - 权限管理API",
+      "description": "实现权限管理API（菜单、按钮、API权限）",
+      "steps": [
+        "创建 Permission 实体类（支持树形结构）",
+        "创建 PermissionMapper 数据访问层",
+        "创建 PermissionService 服务层",
+        "创建 PermissionController 控制器",
+        "POST /api/permissions 创建权限",
+        "GET /api/permissions/tree 获取权限树",
+        "GET /api/permissions/{id} 获取权限详情",
+        "PUT /api/permissions/{id} 更新权限",
+        "DELETE /api/permissions/{id} 删除权限",
+        "GET /api/permissions/user 获取当前用户权限",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 12,
+      "title": "认证服务 - 部门管理API",
+      "description": "实现部门管理API（树形结构）",
+      "steps": [
+        "创建 Department 实体类（支持树形结构：parent_id、path、level）",
+        "创建 DepartmentMapper 数据访问层",
+        "创建 DepartmentService 服务层",
+        "创建 DepartmentController 控制器",
+        "POST /api/departments 创建部门",
+        "GET /api/departments/tree 获取部门树",
+        "GET /api/departments/{id} 获取部门详情",
+        "PUT /api/departments/{id} 更新部门",
+        "DELETE /api/departments/{id} 删除部门（检查子部门）",
+        "GET /api/departments/{id}/employees 获取部门员工",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 13,
+      "title": "认证服务 - 登录登出API",
+      "description": "实现登录登出功能",
+      "steps": [
+        "创建 LoginRequest DTO（username、password）",
+        "创建 LoginResponse DTO（accessToken、refreshToken、expiresIn、userInfo）",
+        "POST /api/auth/login 用户登录（返回Token）",
+        "POST /api/auth/logout 用户登出（使Token失效）",
+        "POST /api/auth/refresh 刷新Token",
+        "GET /api/auth/info 获取当前用户信息",
+        "实现登录日志记录",
+        "实现登录失败次数限制（Redis）",
+        "编写测试验证登录流程"
+      ],
+      "passes": false
+    },
+    {
+      "id": 14,
+      "title": "API网关 - 路由配置",
+      "description": "配置Spring Cloud Gateway路由",
+      "steps": [
+        "配置 Gateway 路由规则（auth-service、business-service、external-service）",
+        "配置跨域处理（CORS）",
+        "配置请求日志过滤器",
+        "配置响应日志过滤器",
+        "配置请求限流过滤器（Redis令牌桶）",
+        "配置熔断降级（Resilience4j）",
+        "配置路由重试机制",
+        "编写测试验证路由"
+      ],
+      "passes": false
+    },
+    {
+      "id": 15,
+      "title": "API网关 - 认证过滤器",
+      "description": "实现网关认证过滤器",
+      "steps": [
+        "创建 AuthenticationGatewayFilter 认证过滤器",
+        "从请求头提取 Bearer Token",
+        "调用认证服务验证Token",
+        "将用户信息注入请求头（X-User-Id、X-Username、X-Roles）",
+        "处理Token过期和无效情况",
+        "配置白名单路径（登录、注册、公开资源）",
+        "编写测试验证过滤器"
+      ],
+      "passes": false
+    },
+    {
+      "id": 16,
+      "title": "前端 - HTTP请求封装",
+      "description": "封装Axios HTTP请求",
+      "steps": [
+        "创建 request.ts 封装Axios实例",
+        "配置请求拦截器（添加Token、请求ID）",
+        "配置响应拦截器（统一错误处理、Token刷新）",
+        "创建 RequestError 类型定义",
+        "实现请求取消功能",
+        "实现请求重试功能",
+        "编写使用示例和测试"
+      ],
+      "passes": false
+    },
+    {
+      "id": 17,
+      "title": "前端 - 用户状态管理",
+      "description": "使用Pinia实现用户状态管理",
+      "steps": [
+        "创建 stores/user.ts 用户状态",
+        "定义用户状态：userInfo、token、roles、permissions",
+        "实现登录 action（调用登录API、存储Token）",
+        "实现登出 action（清除状态、清除Token）",
+        "实现获取用户信息 action",
+        "实现Token刷新 action",
+        "实现权限检查 getter",
+        "配置持久化存储"
+      ],
+      "passes": false
+    },
+    {
+      "id": 18,
+      "title": "前端 - 权限指令和组件",
+      "description": "实现权限指令和权限组件",
+      "steps": [
+        "创建 directives/permission.ts 权限指令",
+        "实现 v-permission 指令（按钮级权限控制）",
+        "创建 components/Permission/PermissionGuard.vue 权限守卫组件",
+        "实现权限不足时的提示和跳转",
+        "创建 usePermission composable（权限检查钩子）",
+        "编写使用示例和测试"
+      ],
+      "passes": false
+    },
+    {
+      "id": 19,
+      "title": "前端 - 登录页面",
+      "description": "实现登录页面UI和功能",
+      "steps": [
+        "创建 views/login/index.vue 登录页面",
+        "创建 LoginForm 组件（用户名、密码、记住我）",
+        "实现表单验证（必填、格式校验）",
+        "实现登录逻辑（调用API、存储Token、跳转）",
+        "实现登录失败提示",
+        "实现验证码功能（可选）",
+        "响应式布局适配",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 20,
+      "title": "前端 - 布局框架",
+      "description": "实现主布局框架",
+      "steps": [
+        "创建 layouts/DefaultLayout.vue 默认布局",
+        "创建 Sidebar 侧边栏组件（菜单、折叠）",
+        "创建 Header 头部组件（用户信息、登出、设置）",
+        "创建 TagsView 标签页组件",
+        "创建 Footer 底部组件",
+        "实现菜单动态渲染（根据权限）",
+        "实现面包屑导航",
+        "实现全屏切换",
+        "浏览器测试验证布局"
+      ],
+      "passes": false
+    },
+    {
+      "id": 21,
+      "title": "前端 - 用户管理页面",
+      "description": "实现用户管理CRUD页面",
+      "steps": [
+        "创建 views/system/user/index.vue 用户列表页",
+        "创建 UserTable 组件（分页、搜索、排序）",
+        "创建 UserForm 组件（新增/编辑表单）",
+        "实现新增用户功能",
+        "实现编辑用户功能",
+        "实现删除用户功能（确认弹窗）",
+        "实现重置密码功能",
+        "实现分配角色功能",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 22,
+      "title": "前端 - 角色管理页面",
+      "description": "实现角色管理CRUD页面",
+      "steps": [
+        "创建 views/system/role/index.vue 角色列表页",
+        "创建 RoleTable 组件",
+        "创建 RoleForm 组件",
+        "实现新增角色功能",
+        "实现编辑角色功能",
+        "实现删除角色功能",
+        "创建 PermissionTree 组件（权限分配）",
+        "实现分配权限功能",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 23,
+      "title": "前端 - 部门管理页面",
+      "description": "实现部门管理页面（树形结构）",
+      "steps": [
+        "创建 views/system/department/index.vue 部门管理页",
+        "创建 DepartmentTree 组件（树形展示）",
+        "创建 DepartmentForm 组件",
+        "实现新增部门功能（支持添加子部门）",
+        "实现编辑部门功能",
+        "实现删除部门功能（检查子部门和员工）",
+        "实现拖拽排序功能",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 24,
+      "title": "业务服务 - 产品管理API",
+      "description": "实现产品(SPU)管理API",
+      "steps": [
+        "创建 Product 实体类",
+        "创建 ProductMapper 数据访问层",
+        "创建 ProductService 服务层",
+        "创建 ProductController 控制器",
+        "POST /api/products 创建产品",
+        "GET /api/products 分页查询产品",
+        "GET /api/products/{id} 获取产品详情",
+        "PUT /api/products/{id} 更新产品",
+        "DELETE /api/products/{id} 删除产品",
+        "GET /api/products/{id}/specs 获取产品规格列表",
+        "配置 Swagger 文档",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 25,
+      "title": "业务服务 - 产品规格API",
+      "description": "实现产品规格(SKU)管理API",
+      "steps": [
+        "创建 ProductSpec 实体类",
+        "创建 ProductSpecMapper 数据访问层",
+        "创建 ProductSpecService 服务层",
+        "创建 ProductSpecController 控制器",
+        "POST /api/product-specs 创建规格",
+        "GET /api/product-specs 分页查询规格",
+        "GET /api/product-specs/{id} 获取规格详情",
+        "PUT /api/product-specs/{id} 更新规格",
+        "DELETE /api/product-specs/{id} 删除规格",
+        "POST /api/product-specs/batch 批量创建规格",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 26,
+      "title": "业务服务 - 物料管理API",
+      "description": "实现物料管理API",
+      "steps": [
+        "创建 Material 实体类",
+        "创建 MaterialMapper 数据访问层",
+        "创建 MaterialService 服务层",
+        "创建 MaterialController 控制器",
+        "POST /api/materials 创建物料",
+        "GET /api/materials 分页查询物料",
+        "GET /api/materials/{id} 获取物料详情",
+        "PUT /api/materials/{id} 更新物料",
+        "DELETE /api/materials/{id} 删除物料",
+        "GET /api/materials/search 搜索物料",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 27,
+      "title": "业务服务 - BOM管理API",
+      "description": "实现BOM管理API",
+      "steps": [
+        "创建 Bom 实体类",
+        "创建 BomItem 实体类",
+        "创建 BomMapper 数据访问层",
+        "创建 BomService 服务层",
+        "创建 BomController 控制器",
+        "POST /api/boms 创建BOM（含明细）",
+        "GET /api/boms 分页查询BOM",
+        "GET /api/boms/{id} 获取BOM详情（含明细）",
+        "PUT /api/boms/{id} 更新BOM",
+        "DELETE /api/boms/{id} 删除BOM",
+        "POST /api/boms/{id}/items 添加BOM项",
+        "DELETE /api/boms/{id}/items/{itemId} 删除BOM项",
+        "GET /api/boms/product/{productId} 根据产品获取BOM",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 28,
+      "title": "前端 - 产品管理页面",
+      "description": "实现产品管理CRUD页面",
+      "steps": [
+        "创建 views/product/list/index.vue 产品列表页",
+        "创建 ProductTable 组件",
+        "创建 ProductForm 组件（基本信息、规格）",
+        "创建 ProductDetail 组件",
+        "实现新增产品功能",
+        "实现编辑产品功能",
+        "实现删除产品功能",
+        "实现产品规格管理（SKU列表）",
+        "实现产品图片上传",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 29,
+      "title": "前端 - 物料管理页面",
+      "description": "实现物料管理CRUD页面",
+      "steps": [
+        "创建 views/material/list/index.vue 物料列表页",
+        "创建 MaterialTable 组件",
+        "创建 MaterialForm 组件",
+        "实现新增物料功能",
+        "实现编辑物料功能",
+        "实现删除物料功能",
+        "实现物料搜索功能",
+        "实现物料分类筛选",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 30,
+      "title": "前端 - BOM管理页面",
+      "description": "实现BOM管理CRUD页面",
+      "steps": [
+        "创建 views/bom/list/index.vue BOM列表页",
+        "创建 BomTable 组件",
+        "创建 BomForm 组件",
+        "创建 BomItemList 组件（BOM明细列表）",
+        "创建 BomItemForm 组件（添加物料项）",
+        "实现新增BOM功能",
+        "实现编辑BOM功能",
+        "实现删除BOM功能",
+        "实现BOM明细管理",
+        "实现BOM成本计算显示",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 31,
+      "title": "业务服务 - 仓库管理API",
+      "description": "实现仓库管理API",
+      "steps": [
+        "创建 Warehouse 实体类",
+        "创建 WarehouseMapper 数据访问层",
+        "创建 WarehouseService 服务层",
+        "创建 WarehouseController 控制器",
+        "POST /api/warehouses 创建仓库",
+        "GET /api/warehouses 分页查询仓库",
+        "GET /api/warehouses/tree 获取仓库树",
+        "GET /api/warehouses/{id} 获取仓库详情",
+        "PUT /api/warehouses/{id} 更新仓库",
+        "DELETE /api/warehouses/{id} 删除仓库",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 32,
+      "title": "业务服务 - 库存管理API",
+      "description": "实现库存查询和管理API",
+      "steps": [
+        "创建 Inventory 实体类",
+        "创建 InventoryMapper 数据访问层",
+        "创建 InventoryService 服务层",
+        "创建 InventoryController 控制器",
+        "GET /api/inventories 分页查询库存",
+        "GET /api/inventories/{id} 获取库存详情",
+        "GET /api/inventories/warehouse/{warehouseId} 按仓库查询",
+        "GET /api/inventories/product/{productId} 按产品查询",
+        "POST /api/inventories/adjust 库存调整",
+        "实现库存预警检查",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 33,
+      "title": "业务服务 - 入库管理API",
+      "description": "实现入库单管理API",
+      "steps": [
+        "创建 StockIn 实体类",
+        "创建 StockInItem 实体类",
+        "创建 StockInMapper 数据访问层",
+        "创建 StockInService 服务层",
+        "创建 StockInController 控制器",
+        "POST /api/stock-ins 创建入库单",
+        "GET /api/stock-ins 分页查询入库单",
+        "GET /api/stock-ins/{id} 获取入库单详情",
+        "PUT /api/stock-ins/{id} 更新入库单",
+        "DELETE /api/stock-ins/{id} 删除入库单",
+        "POST /api/stock-ins/{id}/submit 提交审核",
+        "POST /api/stock-ins/{id}/approve 审核通过",
+        "POST /api/stock-ins/{id}/reject 审核拒绝",
+        "实现入库操作（更新库存）",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 34,
+      "title": "业务服务 - 出库管理API",
+      "description": "实现出库单管理API",
+      "steps": [
+        "创建 StockOut 实体类",
+        "创建 StockOutItem 实体类",
+        "创建 StockOutMapper 数据访问层",
+        "创建 StockOutService 服务层",
+        "创建 StockOutController 控制器",
+        "POST /api/stock-outs 创建出库单",
+        "GET /api/stock-outs 分页查询出库单",
+        "GET /api/stock-outs/{id} 获取出库单详情",
+        "PUT /api/stock-outs/{id} 更新出库单",
+        "DELETE /api/stock-outs/{id} 删除出库单",
+        "POST /api/stock-outs/{id}/submit 提交审核",
+        "POST /api/stock-outs/{id}/approve 审核通过",
+        "POST /api/stock-outs/{id}/reject 审核拒绝",
+        "实现出库操作（更新库存、库存不足检查）",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 35,
+      "title": "前端 - 库存管理页面",
+      "description": "实现库存查询和管理页面",
+      "steps": [
+        "创建 views/inventory/stock/index.vue 库存列表页",
+        "创建 InventoryTable 组件",
+        "创建 InventoryDetail 组件",
+        "创建 StockAdjustDialog 组件（库存调整）",
+        "实现库存查询功能（按仓库、产品筛选）",
+        "实现库存搜索功能",
+        "实现库存调整功能",
+        "实现库存预警显示",
+        "实现库存流水查看",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 36,
+      "title": "前端 - 入库管理页面",
+      "description": "实现入库单管理页面",
+      "steps": [
+        "创建 views/inventory/stock-in/index.vue 入库单列表页",
+        "创建 StockInTable 组件",
+        "创建 StockInForm 组件",
+        "创建 StockInItemList 组件（入库明细）",
+        "创建 StockInDetail 组件",
+        "实现新增入库单功能",
+        "实现编辑入库单功能",
+        "实现删除入库单功能",
+        "实现审核流程（提交、审批、拒绝）",
+        "实现入库确认功能",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 37,
+      "title": "前端 - 出库管理页面",
+      "description": "实现出库单管理页面",
+      "steps": [
+        "创建 views/inventory/stock-out/index.vue 出库单列表页",
+        "创建 StockOutTable 组件",
+        "创建 StockOutForm 组件",
+        "创建 StockOutItemList 组件（出库明细）",
+        "创建 StockOutDetail 组件",
+        "实现新增出库单功能",
+        "实现编辑出库单功能",
+        "实现删除出库单功能",
+        "实现审核流程",
+        "实现出库确认功能",
+        "实现库存不足提示",
+        "浏览器测试验证功能"
+      ],
+      "passes": false
+    },
+    {
+      "id": 38,
+      "title": "工作流引擎 - 核心实现",
+      "description": "实现工作流状态机引擎",
+      "steps": [
+        "创建 WorkflowDefinition 实体类",
+        "创建 WorkflowStatus 实体类",
+        "创建 WorkflowAction 实体类",
+        "创建 WorkflowTransition 实体类",
+        "创建 WorkflowInstance 实体类",
+        "创建 WorkflowEngine 核心引擎类",
+        "实现状态机初始化（加载状态和转换）",
+        "实现获取当前状态方法",
+        "实现获取可用动作方法",
+        "实现执行动作方法（状态转换）",
+        "实现状态回滚方法",
+        "编写测试验证引擎"
+      ],
+      "passes": false
+    },
+    {
+      "id": 39,
+      "title": "工作流引擎 - API实现",
+      "description": "实现工作流管理API",
+      "steps": [
+        "创建 WorkflowService 服务层",
+        "创建 WorkflowController 控制器",
+        "POST /api/workflows 创建工作流定义",
+        "GET /api/workflows 分页查询工作流",
+        "GET /api/workflows/{id} 获取工作流详情",
+        "PUT /api/workflows/{id} 更新工作流",
+        "DELETE /api/workflows/{id} 删除工作流",
+        "POST /api/workflows/{id}/statuses 添加状态",
+        "POST /api/workflows/{id}/actions 添加动作",
+        "POST /api/workflows/{id}/transitions 添加转换",
+        "GET /api/workflows/{id}/preview 预览工作流图",
+        "编写测试验证API"
+      ],
+      "passes": false
+    },
+    {
+      "id": 40,
+      "title": "Nacos配置中心",
+      "description": "配置Nacos作为配置中心和服务发现",
+      "steps": [
+        "编写 docker-compose.yml 启动Nacos",
+        "配置各服务的bootstrap.yml连接Nacos",
+        "将公共配置上传到Nacos（Redis、PostgreSQL等）",
+        "配置服务发现（各服务注册到Nacos）",
+        "配置动态刷新",
+        "编写测试验证配置"
+      ],
+      "passes": false
+    },
+    {
+      "id": 41,
+      "title": "集成测试和文档",
+      "description": "完成集成测试和API文档",
+      "steps": [
+        "编写各服务的集成测试",
+        "配置 Swagger/OpenAPI 文档聚合",
+        "编写 API 使用文档",
+        "编写部署文档",
+        "编写数据库迁移脚本使用说明",
+        "执行完整的端到端测试",
+        "性能测试（可选）"
+      ],
+      "passes": false
+    }
+  ]
+}
