@@ -1,6 +1,16 @@
 {
   "project": "Moran ERP",
   "description": "珠宝行业ERP系统 - 微服务架构",
+  "paths": {
+    "backend": "../moran-erp",
+    "frontend": "../moran-web",
+    "serverConfig": "../linux-server"
+  },
+  "repositories": {
+    "dev": "https://github.com/Simonsmile/moran-dev.git",
+    "backend": "https://github.com/Simonsmile/moran-erp.git",
+    "frontend": "https://github.com/Simonsmile/moran-web.git"
+  },
   "tasks": [
     {
       "id": 1,
@@ -20,7 +30,7 @@
         "创建 moran-api 模块（Feign接口定义）",
         "配置各模块的 pom.xml 依赖关系"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 2,
