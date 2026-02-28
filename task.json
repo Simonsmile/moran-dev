@@ -330,7 +330,7 @@
         "创建 usePermission composable（权限检查钩子）",
         "编写使用示例和测试"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 19,

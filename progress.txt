@@ -21,8 +21,35 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 16个
+- 已完成: 17个
 - 进行中: 0个
+
+### 当前状态:
+Task 17 已完成，准备开始 Task 18: 前端 - 权限指令和组件
+
+---
+
+## 2026-02-28 - Task ID: 17 - 前端登录页面完善
+
+### What was done:
+- 登录页面集成真实API：
+  - 调用 authApi.login 接口
+  - 处理登录成功/失败情况
+  - 存储 accessToken 和 refreshToken
+- 用户体验优化：
+  - 加载状态显示
+  - 错误提示
+  - 记住我功能
+  - 登录后跳转
+
+### Testing:
+- npm run build 构建成功
+
+### Notes:
+- refreshToken 存储在 localStorage
+- accessToken 存储在 Pinia (持久化到 localStorage)
+
+---
 - 待处理: 26个
 
 ### 当前状态:
