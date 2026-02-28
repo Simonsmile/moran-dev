@@ -21,12 +21,42 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 13个
+- 已完成: 14个
 - 进行中: 0个
-- 待处理: 29个
+- 待处理: 28个
 
 ### 当前状态:
-Task 13 已完成，准备开始 Task 14: API网关 - 路由配置
+Task 14 已完成，准备开始 Task 15: API网关 - 认证过滤器
+
+---
+
+## 2026-02-28 - Task ID: 14 - API网关路由配置
+
+### What was done:
+- application.yml 配置更新：
+  - 路由规则：auth-service、business-service
+  - CORS跨域配置
+  - 请求限流（Redis令牌桶）
+  - 熔断降级（Resilience4j）
+  - 路由重试机制
+- GatewayConfig：
+  - IP Key Resolver（限流键解析器）
+- RequestLogFilter：
+  - 全局请求日志过滤器
+  - 记录请求ID、方法、路径、耗时
+- FallbackHandler：
+  - 熔断降级处理
+  - 返回统一错误响应
+- RouterConfig：
+  - 路由函数配置
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 限流使用Redis令牌桶算法
+- 熔断器失败率阈值50%，等待10秒后半开
+- 重试仅对GET请求生效
 
 ---
 
