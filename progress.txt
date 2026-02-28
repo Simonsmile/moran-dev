@@ -21,12 +21,39 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 12个
+- 已完成: 13个
 - 进行中: 0个
-- 待处理: 30个
+- 待处理: 29个
 
 ### 当前状态:
-Task 12 已完成，准备开始 Task 13: 认证服务 - 登录/登出API
+Task 13 已完成，准备开始 Task 14: 认证服务 - 用户角色分配API
+
+---
+
+## 2026-02-28 - Task ID: 13 - 登录/登出API
+
+### What was done:
+- LoginRequest DTO（用户名、密码、验证码）
+- LoginResponse DTO（accessToken、refreshToken、expiresIn、userInfo）
+- AuthService 服务层：
+  - login: 用户登录验证、生成JWT Token、更新登录信息
+  - logout: Token加入黑名单、清除RefreshToken
+  - refresh: 刷新Token
+  - getCurrentUserPermissions: 获取当前用户权限
+- AuthController 控制器：
+  - POST /api/auth/login 登录
+  - POST /api/auth/logout 登出
+  - POST /api/auth/refresh 刷新Token
+  - GET /api/auth/me 获取当前用户信息
+- JwtUtils 新增 getExpireTime 方法
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 登录成功后返回accessToken和refreshToken
+- refreshToken存储在Redis中，有效期7天
+- Token加入黑名单后立即失效
 
 ---
 

@@ -254,7 +254,7 @@
         "实现登录失败次数限制（Redis）",
         "编写测试验证登录流程"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 14,
