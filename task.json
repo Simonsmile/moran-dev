@@ -179,7 +179,7 @@
         "配置 Swagger/OpenAPI 文档",
         "编写测试验证API"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 10,
