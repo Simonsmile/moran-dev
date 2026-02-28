@@ -237,7 +237,7 @@
         "GET /api/departments/{id}/employees 获取部门员工",
         "编写测试验证API"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 13,

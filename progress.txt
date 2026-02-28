@@ -21,12 +21,43 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 11个
+- 已完成: 12个
 - 进行中: 0个
-- 待处理: 31个
+- 待处理: 30个
 
 ### 当前状态:
-Task 11 已完成，准备开始 Task 12: 认证服务 - 部门管理API
+Task 12 已完成，准备开始 Task 13: 认证服务 - 登录/登出API
+
+---
+
+## 2026-02-28 - Task ID: 12 - 部门管理API
+
+### What was done:
+- Department 实体类（支持树形结构）
+- DepartmentMapper 数据访问层（含用户计数）
+- DepartmentService 服务层：
+  - create: 创建部门（自动计算path和level）
+  - getById: 获取部门详情
+  - getTree: 获取部门树
+  - getChildren: 获取子部门列表
+  - update: 更新部门
+  - delete: 删除部门（检查子部门和用户）
+  - findByCode: 按编码查询
+- DepartmentController 控制器：
+  - POST /api/departments 创建部门
+  - GET /api/departments/tree 获取部门树
+  - GET /api/departments/children/{parentId} 获取子部门
+  - GET /api/departments/{id} 获取部门详情
+  - PUT /api/departments/{id} 更新部门
+  - DELETE /api/departments/{id} 删除部门
+- DTOs: DepartmentCreateRequest, DepartmentUpdateRequest, DepartmentVO
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 部门支持树形结构，自动计算path和level
+- 删除部门前检查子部门和用户
 
 ---
 
