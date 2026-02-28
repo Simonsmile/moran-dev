@@ -21,12 +21,46 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 10个
+- 已完成: 11个
 - 进行中: 0个
-- 待处理: 32个
+- 待处理: 31个
 
 ### 当前状态:
-Task 10 已完成，准备开始 Task 11: 认证服务 - 权限管理API
+Task 11 已完成，准备开始 Task 12: 认证服务 - 部门管理API
+
+---
+
+## 2026-02-28 - Task ID: 11 - 权限管理API
+
+### What was done:
+- Permission 实体类（支持树形结构）
+- PermissionMapper 数据访问层
+- PermissionService 服务层：
+  - create: 创建权限
+  - getById: 获取权限详情
+  - getTree: 获取权限树
+  - getChildren: 获取子权限列表
+  - update: 更新权限
+  - delete: 删除权限（检查子权限）
+  - getUserPermissions: 获取用户权限树
+  - findByCode: 按编码查询
+- PermissionController 控制器：
+  - POST /api/permissions 创建权限
+  - GET /api/permissions/tree 获取权限树
+  - GET /api/permissions/children/{parentId} 获取子权限
+  - GET /api/permissions/{id} 获取权限详情
+  - PUT /api/permissions/{id} 更新权限
+  - DELETE /api/permissions/{id} 删除权限
+  - GET /api/permissions/user 获取当前用户权限
+- DTOs: PermissionCreateRequest, PermissionUpdateRequest, PermissionVO
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 权限支持树形结构（菜单-按钮-API三级）
+- 删除权限前检查是否存在子权限
+- 用户权限通过角色关联查询
 
 ---
 
