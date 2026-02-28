@@ -26,7 +26,25 @@
 - 待处理: 29个
 
 ### 当前状态:
-Task 13 已完成，准备开始 Task 14: 认证服务 - 用户角色分配API
+Task 13 已完成，准备开始 Task 14: API网关 - 路由配置
+
+---
+
+## 2026-02-28 - 用户角色分配功能补充
+
+### What was done:
+- UserRoleController 控制器：
+  - GET /api/users/{userId}/roles 获取用户角色
+  - POST /api/users/{userId}/roles 分配用户角色
+- 分配角色时先删除旧关联再插入新关联
+
+### Testing:
+- mvn clean compile 编译成功
+- Java版本从21调整为17以匹配系统环境
+
+### Notes:
+- 用户角色分配支持批量操作
+- 分配时自动清除旧的角色关联
 
 ---
 
