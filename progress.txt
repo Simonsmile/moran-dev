@@ -21,12 +21,39 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 14个
+- 已完成: 15个
 - 进行中: 0个
-- 待处理: 28个
+- 待处理: 27个
 
 ### 当前状态:
-Task 14 已完成，准备开始 Task 15: API网关 - 认证过滤器
+Task 15 已完成，准备开始 Task 16: 前端 - HTTP请求封装
+
+---
+
+## 2026-02-28 - Task ID: 15 - API网关认证过滤器
+
+### What was done:
+- AuthenticationFilter 认证过滤器：
+  - 从请求头提取Bearer Token
+  - 验证Token有效性
+  - 将用户信息注入请求头（X-User-Id、X-Username、X-Roles）
+  - 处理Token过期和无效情况
+  - 返回401未授权响应
+- 白名单路径配置：
+  - /api/auth/login
+  - /api/auth/register
+  - /api/auth/captcha
+  - /actuator/**
+  - /swagger-ui/**
+  - /v3/api-docs/**
+  - /fallback
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 白名单支持Ant路径匹配模式
+- 过滤器优先级为-50（在日志过滤器之后）
 
 ---
 
