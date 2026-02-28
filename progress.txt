@@ -21,12 +21,47 @@
 
 ### 任务统计:
 - 总任务数: 42个
-- 已完成: 9个
+- 已完成: 10个
 - 进行中: 0个
-- 待处理: 33个
+- 待处理: 32个
 
 ### 当前状态:
-Task 9 已完成，准备开始 Task 10: 认证服务 - 角色管理API
+Task 10 已完成，准备开始 Task 11: 认证服务 - 权限管理API
+
+---
+
+## 2026-02-28 - Task ID: 10 - 角色管理API
+
+### What was done:
+- Role 实体类
+- Permission 实体类（支持树形结构）
+- RoleMapper 数据访问层（含权限查询）
+- PermissionMapper 数据访问层
+- RoleService 服务层：
+  - create: 创建角色
+  - getById: 获取角色详情
+  - list: 查询角色列表（支持关键字、状态筛选）
+  - update: 更新角色信息
+  - delete: 删除角色（同时删除用户角色关联和角色权限关联）
+  - assignPermissions: 分配权限
+  - getPermissionIds: 获取角色权限ID列表
+  - findByCode: 按编码查询
+- RoleController 控制器：
+  - POST /api/roles 创建角色
+  - GET /api/roles 查询角色列表
+  - GET /api/roles/{id} 获取角色详情
+  - PUT /api/roles/{id} 更新角色
+  - DELETE /api/roles/{id} 删除角色
+  - POST /api/roles/{id}/permissions 分配权限
+  - GET /api/roles/{id}/permissions 获取角色权限
+- DTOs: RoleCreateRequest, RoleUpdateRequest, RoleVO
+
+### Testing:
+- mvn clean compile 编译成功
+
+### Notes:
+- 删除角色时级联删除关联数据
+- 角色编码唯一
 
 ---
 

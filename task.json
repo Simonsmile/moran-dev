@@ -199,7 +199,7 @@
         "GET /api/roles/{id}/permissions 获取角色权限",
         "编写测试验证API"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 11,
