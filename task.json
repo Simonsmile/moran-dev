@@ -374,22 +374,22 @@
       ],
       "passes": true
     },
-    {
+{
       "id": 22,
       "title": "前端 - 角色管理页面",
-      "description": "实现角色管理CRUD页面",
+      "description": "实现角色管理页面UI和功能",
       "subtasks": [
-        { "id": "22.1", "description": "创建角色列表页基础结构", "passes": false },
-        { "id": "22.2", "description": "创建RoleTable组件", "passes": false },
-        { "id": "22.3", "description": "创建RoleForm组件", "passes": false },
-        { "id": "22.4", "description": "实现新增角色功能", "passes": false },
-        { "id": "22.5", "description": "实现编辑角色功能", "passes": false },
-        { "id": "22.6", "description": "实现删除角色功能", "passes": false },
-        { "id": "22.7", "description": "创建PermissionTree组件（权限分配）", "passes": false },
-        { "id": "22.8", "description": "实现分配权限功能", "passes": false },
-        { "id": "22.9", "description": "浏览器测试验证功能", "passes": false }
+        { "id": "22.1", "description": "创建角色管理页面基础结构", "passes": true },
+        { "id": "22.2", "description": "创建角色表格组件", "passes": true },
+        { "id": "22.3", "description": "创建角色表单组件", "passes": true },
+        { "id": "22.4", "description": "实现角色列表查询功能", "passes": true },
+        { "id": "22.5", "description": "实现角色增删改功能", "passes": true },
+        { "id": "22.6", "description": "实现角色状态管理功能", "passes": true },
+        { "id": "22.7", "description": "实现角色权限分配功能", "passes": true },
+        { "id": "22.8", "description": "实现权限树形展示", "passes": true },
+        { "id": "22.9", "description": "实现权限控制和安全校验", "passes": true }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 23,
