@@ -305,14 +305,14 @@
       "title": "前端 - 用户状态管理",
       "description": "使用Pinia实现用户状态管理",
       "subtasks": [
-        { "id": "17.1", "description": "创建用户状态store基础结构", "passes": false },
-        { "id": "17.2", "description": "实现用户状态定义（userInfo、token、roles、permissions）", "passes": false },
-        { "id": "17.3", "description": "实现登录和登出action", "passes": false },
-        { "id": "17.4", "description": "实现用户信息获取和Token刷新action", "passes": false },
-        { "id": "17.5", "description": "实现权限检查getter", "passes": false },
-        { "id": "17.6", "description": "配置持久化存储", "passes": false }
+        { "id": "17.1", "description": "创建用户状态store基础结构", "passes": true },
+        { "id": "17.2", "description": "实现用户状态定义（userInfo、token、roles、permissions）", "passes": true },
+        { "id": "17.3", "description": "实现登录和登出action", "passes": true },
+        { "id": "17.4", "description": "实现用户信息获取和Token刷新action", "passes": true },
+        { "id": "17.5", "description": "实现权限检查getter", "passes": true },
+        { "id": "17.6", "description": "配置持久化存储", "passes": true }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 18,
