@@ -159,8 +159,6 @@
       ],
       "passes": true
     },
-      "passes": false
-    },
     {
       "id": 9,
       "title": "认证服务 - 用户管理API",
@@ -306,15 +304,13 @@
       "id": 17,
       "title": "前端 - 用户状态管理",
       "description": "使用Pinia实现用户状态管理",
-      "steps": [
-        "创建 stores/user.ts 用户状态",
-        "定义用户状态：userInfo、token、roles、permissions",
-        "实现登录 action（调用登录API、存储Token）",
-        "实现登出 action（清除状态、清除Token）",
-        "实现获取用户信息 action",
-        "实现Token刷新 action",
-        "实现权限检查 getter",
-        "配置持久化存储"
+      "subtasks": [
+        { "id": "17.1", "description": "创建用户状态store基础结构", "passes": false },
+        { "id": "17.2", "description": "实现用户状态定义（userInfo、token、roles、permissions）", "passes": false },
+        { "id": "17.3", "description": "实现登录和登出action", "passes": false },
+        { "id": "17.4", "description": "实现用户信息获取和Token刷新action", "passes": false },
+        { "id": "17.5", "description": "实现权限检查getter", "passes": false },
+        { "id": "17.6", "description": "配置持久化存储", "passes": false }
       ],
       "passes": false
     },
@@ -336,15 +332,12 @@
       "id": 19,
       "title": "前端 - 登录页面",
       "description": "实现登录页面UI和功能",
-      "steps": [
-        "创建 views/login/index.vue 登录页面",
-        "创建 LoginForm 组件（用户名、密码、记住我）",
-        "实现表单验证（必填、格式校验）",
-        "实现登录逻辑（调用API、存储Token、跳转）",
-        "实现登录失败提示",
-        "实现验证码功能（可选）",
-        "响应式布局适配",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "19.1", "description": "创建登录页面基础布局", "passes": false },
+        { "id": "19.2", "description": "创建LoginForm组件和表单验证", "passes": false },
+        { "id": "19.3", "description": "实现登录逻辑和API调用", "passes": false },
+        { "id": "19.4", "description": "实现登录失败处理和提示", "passes": false },
+        { "id": "19.5", "description": "实现响应式布局和样式美化", "passes": false }
       ],
       "passes": false
     },
@@ -352,16 +345,15 @@
       "id": 20,
       "title": "前端 - 布局框架",
       "description": "实现主布局框架",
-      "steps": [
-        "创建 layouts/DefaultLayout.vue 默认布局",
-        "创建 Sidebar 侧边栏组件（菜单、折叠）",
-        "创建 Header 头部组件（用户信息、登出、设置）",
-        "创建 TagsView 标签页组件",
-        "创建 Footer 底部组件",
-        "实现菜单动态渲染（根据权限）",
-        "实现面包屑导航",
-        "实现全屏切换",
-        "浏览器测试验证布局"
+      "subtasks": [
+        { "id": "20.1", "description": "创建DefaultLayout.vue默认布局", "passes": false },
+        { "id": "20.2", "description": "创建Sidebar侧边栏组件（菜单、折叠）", "passes": false },
+        { "id": "20.3", "description": "创建Header头部组件（用户信息、登出、设置）", "passes": false },
+        { "id": "20.4", "description": "创建TagsView标签页组件", "passes": false },
+        { "id": "20.5", "description": "创建Footer底部组件", "passes": false },
+        { "id": "20.6", "description": "实现菜单动态渲染（根据权限）", "passes": false },
+        { "id": "20.7", "description": "实现面包屑导航", "passes": false },
+        { "id": "20.8", "description": "实现全屏切换", "passes": false }
       ],
       "passes": false
     },
@@ -369,16 +361,16 @@
       "id": 21,
       "title": "前端 - 用户管理页面",
       "description": "实现用户管理CRUD页面",
-      "steps": [
-        "创建 views/system/user/index.vue 用户列表页",
-        "创建 UserTable 组件（分页、搜索、排序）",
-        "创建 UserForm 组件（新增/编辑表单）",
-        "实现新增用户功能",
-        "实现编辑用户功能",
-        "实现删除用户功能（确认弹窗）",
-        "实现重置密码功能",
-        "实现分配角色功能",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "21.1", "description": "创建用户列表页基础结构", "passes": false },
+        { "id": "21.2", "description": "创建UserTable组件（分页、搜索、排序）", "passes": false },
+        { "id": "21.3", "description": "创建UserForm组件（新增/编辑表单）", "passes": false },
+        { "id": "21.4", "description": "实现新增用户功能", "passes": false },
+        { "id": "21.5", "description": "实现编辑用户功能", "passes": false },
+        { "id": "21.6", "description": "实现删除用户功能（确认弹窗）", "passes": false },
+        { "id": "21.7", "description": "实现重置密码功能", "passes": false },
+        { "id": "21.8", "description": "实现分配角色功能", "passes": false },
+        { "id": "21.9", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -386,16 +378,16 @@
       "id": 22,
       "title": "前端 - 角色管理页面",
       "description": "实现角色管理CRUD页面",
-      "steps": [
-        "创建 views/system/role/index.vue 角色列表页",
-        "创建 RoleTable 组件",
-        "创建 RoleForm 组件",
-        "实现新增角色功能",
-        "实现编辑角色功能",
-        "实现删除角色功能",
-        "创建 PermissionTree 组件（权限分配）",
-        "实现分配权限功能",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "22.1", "description": "创建角色列表页基础结构", "passes": false },
+        { "id": "22.2", "description": "创建RoleTable组件", "passes": false },
+        { "id": "22.3", "description": "创建RoleForm组件", "passes": false },
+        { "id": "22.4", "description": "实现新增角色功能", "passes": false },
+        { "id": "22.5", "description": "实现编辑角色功能", "passes": false },
+        { "id": "22.6", "description": "实现删除角色功能", "passes": false },
+        { "id": "22.7", "description": "创建PermissionTree组件（权限分配）", "passes": false },
+        { "id": "22.8", "description": "实现分配权限功能", "passes": false },
+        { "id": "22.9", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -403,56 +395,46 @@
       "id": 23,
       "title": "前端 - 部门管理页面",
       "description": "实现部门管理页面（树形结构）",
-      "steps": [
-        "创建 views/system/department/index.vue 部门管理页",
-        "创建 DepartmentTree 组件（树形展示）",
-        "创建 DepartmentForm 组件",
-        "实现新增部门功能（支持添加子部门）",
-        "实现编辑部门功能",
-        "实现删除部门功能（检查子部门和员工）",
-        "实现拖拽排序功能",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "23.1", "description": "创建部门管理页基础结构", "passes": false },
+        { "id": "23.2", "description": "创建DepartmentTree组件（树形展示）", "passes": false },
+        { "id": "23.3", "description": "创建DepartmentForm组件", "passes": false },
+        { "id": "23.4", "description": "实现新增部门功能（支持添加子部门）", "passes": false },
+        { "id": "23.5", "description": "实现编辑部门功能", "passes": false },
+        { "id": "23.6", "description": "实现删除部门功能（检查子部门和员工）", "passes": false },
+        { "id": "23.7", "description": "实现拖拽排序功能", "passes": false },
+        { "id": "23.8", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
     {
       "id": 24,
-      "title": "业务服务 - 产品管理API",
-      "description": "实现产品(SPU)管理API",
-      "steps": [
-        "创建 Product 实体类",
-        "创建 ProductMapper 数据访问层",
-        "创建 ProductService 服务层",
-        "创建 ProductController 控制器",
-        "POST /api/products 创建产品",
-        "GET /api/products 分页查询产品",
-        "GET /api/products/{id} 获取产品详情",
-        "PUT /api/products/{id} 更新产品",
-        "DELETE /api/products/{id} 删除产品",
-        "GET /api/products/{id}/specs 获取产品规格列表",
-        "配置 Swagger 文档",
-        "编写测试验证API"
+      "title": "业务服务 - 产品基础模块",
+      "description": "创建产品相关的实体类、Mapper、DTO类和Service",
+      "subtasks": [
+        { "id": "24.1", "description": "创建Product和ProductSpec实体类", "passes": false },
+        { "id": "24.2", "description": "创建Product和ProductSpec Mapper接口", "passes": false },
+        { "id": "24.3", "description": "创建产品相关DTO类", "passes": false },
+        { "id": "24.4", "description": "创建ProductService接口和基础实现", "passes": false },
+        { "id": "24.5", "description": "编写产品基础模块测试", "passes": false }
       ],
       "passes": false
     },
     {
       "id": 25,
-      "title": "业务服务 - 产品规格API",
-      "description": "实现产品规格(SKU)管理API",
-      "steps": [
-        "创建 ProductSpec 实体类",
-        "创建 ProductSpecMapper 数据访问层",
-        "创建 ProductSpecService 服务层",
-        "创建 ProductSpecController 控制器",
-        "POST /api/product-specs 创建规格",
-        "GET /api/product-specs 分页查询规格",
-        "GET /api/product-specs/{id} 获取规格详情",
-        "PUT /api/product-specs/{id} 更新规格",
-        "DELETE /api/product-specs/{id} 删除规格",
-        "POST /api/product-specs/batch 批量创建规格",
-        "编写测试验证API"
+      "title": "业务服务 - 产品API实现",
+      "description": "实现产品管理REST API",
+      "subtasks": [
+        { "id": "25.1", "description": "创建ProductController类", "passes": false },
+        { "id": "25.2", "description": "实现创建产品API", "passes": false },
+        { "id": "25.3", "description": "实现分页查询产品API", "passes": false },
+        { "id": "25.4", "description": "实现获取产品详情API", "passes": false },
+        { "id": "25.5", "description": "实现更新产品API", "passes": false },
+        { "id": "25.6", "description": "实现删除产品API", "passes": false },
+        { "id": "25.7", "description": "实现产品状态管理API", "passes": false },
+        { "id": "25.8", "description": "编写产品API测试", "passes": false }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 26,
@@ -471,45 +453,45 @@
         "GET /api/materials/search 搜索物料",
         "编写测试验证API"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 27,
       "title": "业务服务 - BOM管理API",
       "description": "实现BOM管理API",
-      "steps": [
-        "创建 Bom 实体类",
-        "创建 BomItem 实体类",
-        "创建 BomMapper 数据访问层",
-        "创建 BomService 服务层",
-        "创建 BomController 控制器",
-        "POST /api/boms 创建BOM（含明细）",
-        "GET /api/boms 分页查询BOM",
-        "GET /api/boms/{id} 获取BOM详情（含明细）",
-        "PUT /api/boms/{id} 更新BOM",
-        "DELETE /api/boms/{id} 删除BOM",
-        "POST /api/boms/{id}/items 添加BOM项",
-        "DELETE /api/boms/{id}/items/{itemId} 删除BOM项",
-        "GET /api/boms/product/{productId} 根据产品获取BOM",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "27.1", "description": "创建Bom和BomItem实体类", "passes": true },
+        { "id": "27.2", "description": "创建BomMapper和BomItemMapper数据访问层", "passes": true },
+        { "id": "27.3", "description": "创建BomService接口和基础实现", "passes": true },
+        { "id": "27.4", "description": "实现创建BOM（含明细）的API", "passes": true },
+        { "id": "27.5", "description": "实现分页查询BOM的API", "passes": true },
+        { "id": "27.6", "description": "实现获取BOM详情的API", "passes": true },
+        { "id": "27.7", "description": "实现更新BOM的API", "passes": true },
+        { "id": "27.8", "description": "实现删除BOM的API", "passes": true },
+        { "id": "27.9", "description": "实现添加BOM项的API", "passes": true },
+        { "id": "27.10", "description": "实现删除BOM项的API", "passes": true },
+        { "id": "27.11", "description": "实现根据产品获取BOM的API", "passes": true },
+        { "id": "27.12", "description": "实现BOM状态管理API", "passes": true },
+        { "id": "27.13", "description": "编写BOM Service单元测试", "passes": true },
+        { "id": "27.14", "description": "编写BOM Controller集成测试", "passes": true }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 28,
       "title": "前端 - 产品管理页面",
       "description": "实现产品管理CRUD页面",
-      "steps": [
-        "创建 views/product/list/index.vue 产品列表页",
-        "创建 ProductTable 组件",
-        "创建 ProductForm 组件（基本信息、规格）",
-        "创建 ProductDetail 组件",
-        "实现新增产品功能",
-        "实现编辑产品功能",
-        "实现删除产品功能",
-        "实现产品规格管理（SKU列表）",
-        "实现产品图片上传",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "28.1", "description": "创建产品列表页基础结构", "passes": false },
+        { "id": "28.2", "description": "创建ProductTable组件", "passes": false },
+        { "id": "28.3", "description": "创建ProductForm组件（基本信息、规格）", "passes": false },
+        { "id": "28.4", "description": "创建ProductDetail组件", "passes": false },
+        { "id": "28.5", "description": "实现新增产品功能", "passes": false },
+        { "id": "28.6", "description": "实现编辑产品功能", "passes": false },
+        { "id": "28.7", "description": "实现删除产品功能", "passes": false },
+        { "id": "28.8", "description": "实现产品规格管理（SKU列表）", "passes": false },
+        { "id": "28.9", "description": "实现产品图片上传", "passes": false },
+        { "id": "28.10", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -517,16 +499,16 @@
       "id": 29,
       "title": "前端 - 物料管理页面",
       "description": "实现物料管理CRUD页面",
-      "steps": [
-        "创建 views/material/list/index.vue 物料列表页",
-        "创建 MaterialTable 组件",
-        "创建 MaterialForm 组件",
-        "实现新增物料功能",
-        "实现编辑物料功能",
-        "实现删除物料功能",
-        "实现物料搜索功能",
-        "实现物料分类筛选",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "29.1", "description": "创建物料列表页基础结构", "passes": false },
+        { "id": "29.2", "description": "创建MaterialTable组件", "passes": false },
+        { "id": "29.3", "description": "创建MaterialForm组件", "passes": false },
+        { "id": "29.4", "description": "实现新增物料功能", "passes": false },
+        { "id": "29.5", "description": "实现编辑物料功能", "passes": false },
+        { "id": "29.6", "description": "实现删除物料功能", "passes": false },
+        { "id": "29.7", "description": "实现物料搜索功能", "passes": false },
+        { "id": "29.8", "description": "实现物料分类筛选", "passes": false },
+        { "id": "29.9", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -534,18 +516,18 @@
       "id": 30,
       "title": "前端 - BOM管理页面",
       "description": "实现BOM管理CRUD页面",
-      "steps": [
-        "创建 views/bom/list/index.vue BOM列表页",
-        "创建 BomTable 组件",
-        "创建 BomForm 组件",
-        "创建 BomItemList 组件（BOM明细列表）",
-        "创建 BomItemForm 组件（添加物料项）",
-        "实现新增BOM功能",
-        "实现编辑BOM功能",
-        "实现删除BOM功能",
-        "实现BOM明细管理",
-        "实现BOM成本计算显示",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "30.1", "description": "创建BOM列表页基础结构", "passes": false },
+        { "id": "30.2", "description": "创建BomTable组件", "passes": false },
+        { "id": "30.3", "description": "创建BomForm组件", "passes": false },
+        { "id": "30.4", "description": "创建BomItemList组件（BOM明细列表）", "passes": false },
+        { "id": "30.5", "description": "创建BomItemForm组件（添加物料项）", "passes": false },
+        { "id": "30.6", "description": "实现新增BOM功能", "passes": false },
+        { "id": "30.7", "description": "实现编辑BOM功能", "passes": false },
+        { "id": "30.8", "description": "实现删除BOM功能", "passes": false },
+        { "id": "30.9", "description": "实现BOM明细管理", "passes": false },
+        { "id": "30.10", "description": "实现BOM成本计算显示", "passes": false },
+        { "id": "30.11", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -553,18 +535,18 @@
       "id": 31,
       "title": "业务服务 - 仓库管理API",
       "description": "实现仓库管理API",
-      "steps": [
-        "创建 Warehouse 实体类",
-        "创建 WarehouseMapper 数据访问层",
-        "创建 WarehouseService 服务层",
-        "创建 WarehouseController 控制器",
-        "POST /api/warehouses 创建仓库",
-        "GET /api/warehouses 分页查询仓库",
-        "GET /api/warehouses/tree 获取仓库树",
-        "GET /api/warehouses/{id} 获取仓库详情",
-        "PUT /api/warehouses/{id} 更新仓库",
-        "DELETE /api/warehouses/{id} 删除仓库",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "31.1", "description": "创建Warehouse实体类", "passes": false },
+        { "id": "31.2", "description": "创建WarehouseMapper数据访问层", "passes": false },
+        { "id": "31.3", "description": "创建WarehouseService服务层", "passes": false },
+        { "id": "31.4", "description": "创建WarehouseController控制器", "passes": false },
+        { "id": "31.5", "description": "实现创建仓库API", "passes": false },
+        { "id": "31.6", "description": "实现分页查询仓库API", "passes": false },
+        { "id": "31.7", "description": "实现获取仓库树API", "passes": false },
+        { "id": "31.8", "description": "实现获取仓库详情API", "passes": false },
+        { "id": "31.9", "description": "实现更新仓库API", "passes": false },
+        { "id": "31.10", "description": "实现删除仓库API", "passes": false },
+        { "id": "31.11", "description": "编写仓库管理API测试", "passes": false }
       ],
       "passes": false
     },
@@ -572,18 +554,18 @@
       "id": 32,
       "title": "业务服务 - 库存管理API",
       "description": "实现库存查询和管理API",
-      "steps": [
-        "创建 Inventory 实体类",
-        "创建 InventoryMapper 数据访问层",
-        "创建 InventoryService 服务层",
-        "创建 InventoryController 控制器",
-        "GET /api/inventories 分页查询库存",
-        "GET /api/inventories/{id} 获取库存详情",
-        "GET /api/inventories/warehouse/{warehouseId} 按仓库查询",
-        "GET /api/inventories/product/{productId} 按产品查询",
-        "POST /api/inventories/adjust 库存调整",
-        "实现库存预警检查",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "32.1", "description": "创建Inventory实体类", "passes": false },
+        { "id": "32.2", "description": "创建InventoryMapper数据访问层", "passes": false },
+        { "id": "32.3", "description": "创建InventoryService服务层", "passes": false },
+        { "id": "32.4", "description": "创建InventoryController控制器", "passes": false },
+        { "id": "32.5", "description": "实现分页查询库存API", "passes": false },
+        { "id": "32.6", "description": "实现获取库存详情API", "passes": false },
+        { "id": "32.7", "description": "实现按仓库查询库存API", "passes": false },
+        { "id": "32.8", "description": "实现按产品查询库存API", "passes": false },
+        { "id": "32.9", "description": "实现库存调整API", "passes": false },
+        { "id": "32.10", "description": "实现库存预警检查", "passes": false },
+        { "id": "32.11", "description": "编写库存管理API测试", "passes": false }
       ],
       "passes": false
     },
@@ -591,22 +573,15 @@
       "id": 33,
       "title": "业务服务 - 入库管理API",
       "description": "实现入库单管理API",
-      "steps": [
-        "创建 StockIn 实体类",
-        "创建 StockInItem 实体类",
-        "创建 StockInMapper 数据访问层",
-        "创建 StockInService 服务层",
-        "创建 StockInController 控制器",
-        "POST /api/stock-ins 创建入库单",
-        "GET /api/stock-ins 分页查询入库单",
-        "GET /api/stock-ins/{id} 获取入库单详情",
-        "PUT /api/stock-ins/{id} 更新入库单",
-        "DELETE /api/stock-ins/{id} 删除入库单",
-        "POST /api/stock-ins/{id}/submit 提交审核",
-        "POST /api/stock-ins/{id}/approve 审核通过",
-        "POST /api/stock-ins/{id}/reject 审核拒绝",
-        "实现入库操作（更新库存）",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "33.1", "description": "创建StockIn和StockInItem实体类", "passes": false },
+        { "id": "33.2", "description": "创建StockInMapper和StockInItemMapper", "passes": false },
+        { "id": "33.3", "description": "创建StockInService接口", "passes": false },
+        { "id": "33.4", "description": "实现入库单基础CRUD操作", "passes": false },
+        { "id": "33.5", "description": "实现入库单审核流程API", "passes": false },
+        { "id": "33.6", "description": "实现入库操作（更新库存）", "passes": false },
+        { "id": "33.7", "description": "创建StockInController和基础API", "passes": false },
+        { "id": "33.8", "description": "编写入库管理API测试", "passes": false }
       ],
       "passes": false
     },
@@ -614,22 +589,15 @@
       "id": 34,
       "title": "业务服务 - 出库管理API",
       "description": "实现出库单管理API",
-      "steps": [
-        "创建 StockOut 实体类",
-        "创建 StockOutItem 实体类",
-        "创建 StockOutMapper 数据访问层",
-        "创建 StockOutService 服务层",
-        "创建 StockOutController 控制器",
-        "POST /api/stock-outs 创建出库单",
-        "GET /api/stock-outs 分页查询出库单",
-        "GET /api/stock-outs/{id} 获取出库单详情",
-        "PUT /api/stock-outs/{id} 更新出库单",
-        "DELETE /api/stock-outs/{id} 删除出库单",
-        "POST /api/stock-outs/{id}/submit 提交审核",
-        "POST /api/stock-outs/{id}/approve 审核通过",
-        "POST /api/stock-outs/{id}/reject 审核拒绝",
-        "实现出库操作（更新库存、库存不足检查）",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "34.1", "description": "创建StockOut和StockOutItem实体类", "passes": false },
+        { "id": "34.2", "description": "创建StockOutMapper和StockOutItemMapper", "passes": false },
+        { "id": "34.3", "description": "创建StockOutService接口", "passes": false },
+        { "id": "34.4", "description": "实现出库单基础CRUD操作", "passes": false },
+        { "id": "34.5", "description": "实现出库单审核流程API", "passes": false },
+        { "id": "34.6", "description": "实现出库操作（更新库存、库存不足检查）", "passes": false },
+        { "id": "34.7", "description": "创建StockOutController和基础API", "passes": false },
+        { "id": "34.8", "description": "编写出库管理API测试", "passes": false }
       ],
       "passes": false
     },
@@ -637,17 +605,17 @@
       "id": 35,
       "title": "前端 - 库存管理页面",
       "description": "实现库存查询和管理页面",
-      "steps": [
-        "创建 views/inventory/stock/index.vue 库存列表页",
-        "创建 InventoryTable 组件",
-        "创建 InventoryDetail 组件",
-        "创建 StockAdjustDialog 组件（库存调整）",
-        "实现库存查询功能（按仓库、产品筛选）",
-        "实现库存搜索功能",
-        "实现库存调整功能",
-        "实现库存预警显示",
-        "实现库存流水查看",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "35.1", "description": "创建库存列表页基础结构", "passes": false },
+        { "id": "35.2", "description": "创建InventoryTable组件", "passes": false },
+        { "id": "35.3", "description": "创建InventoryDetail组件", "passes": false },
+        { "id": "35.4", "description": "创建StockAdjustDialog组件（库存调整）", "passes": false },
+        { "id": "35.5", "description": "实现库存查询功能（按仓库、产品筛选）", "passes": false },
+        { "id": "35.6", "description": "实现库存搜索功能", "passes": false },
+        { "id": "35.7", "description": "实现库存调整功能", "passes": false },
+        { "id": "35.8", "description": "实现库存预警显示", "passes": false },
+        { "id": "35.9", "description": "实现库存流水查看", "passes": false },
+        { "id": "35.10", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -655,18 +623,18 @@
       "id": 36,
       "title": "前端 - 入库管理页面",
       "description": "实现入库单管理页面",
-      "steps": [
-        "创建 views/inventory/stock-in/index.vue 入库单列表页",
-        "创建 StockInTable 组件",
-        "创建 StockInForm 组件",
-        "创建 StockInItemList 组件（入库明细）",
-        "创建 StockInDetail 组件",
-        "实现新增入库单功能",
-        "实现编辑入库单功能",
-        "实现删除入库单功能",
-        "实现审核流程（提交、审批、拒绝）",
-        "实现入库确认功能",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "36.1", "description": "创建入库单列表页基础结构", "passes": false },
+        { "id": "36.2", "description": "创建StockInTable组件", "passes": false },
+        { "id": "36.3", "description": "创建StockInForm组件", "passes": false },
+        { "id": "36.4", "description": "创建StockInItemList组件（入库明细）", "passes": false },
+        { "id": "36.5", "description": "创建StockInDetail组件", "passes": false },
+        { "id": "36.6", "description": "实现新增入库单功能", "passes": false },
+        { "id": "36.7", "description": "实现编辑入库单功能", "passes": false },
+        { "id": "36.8", "description": "实现删除入库单功能", "passes": false },
+        { "id": "36.9", "description": "实现审核流程（提交、审批、拒绝）", "passes": false },
+        { "id": "36.10", "description": "实现入库确认功能", "passes": false },
+        { "id": "36.11", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -674,19 +642,19 @@
       "id": 37,
       "title": "前端 - 出库管理页面",
       "description": "实现出库单管理页面",
-      "steps": [
-        "创建 views/inventory/stock-out/index.vue 出库单列表页",
-        "创建 StockOutTable 组件",
-        "创建 StockOutForm 组件",
-        "创建 StockOutItemList 组件（出库明细）",
-        "创建 StockOutDetail 组件",
-        "实现新增出库单功能",
-        "实现编辑出库单功能",
-        "实现删除出库单功能",
-        "实现审核流程",
-        "实现出库确认功能",
-        "实现库存不足提示",
-        "浏览器测试验证功能"
+      "subtasks": [
+        { "id": "37.1", "description": "创建出库单列表页基础结构", "passes": false },
+        { "id": "37.2", "description": "创建StockOutTable组件", "passes": false },
+        { "id": "37.3", "description": "创建StockOutForm组件", "passes": false },
+        { "id": "37.4", "description": "创建StockOutItemList组件（出库明细）", "passes": false },
+        { "id": "37.5", "description": "创建StockOutDetail组件", "passes": false },
+        { "id": "37.6", "description": "实现新增出库单功能", "passes": false },
+        { "id": "37.7", "description": "实现编辑出库单功能", "passes": false },
+        { "id": "37.8", "description": "实现删除出库单功能", "passes": false },
+        { "id": "37.9", "description": "实现审核流程", "passes": false },
+        { "id": "37.10", "description": "实现出库确认功能", "passes": false },
+        { "id": "37.11", "description": "实现库存不足提示", "passes": false },
+        { "id": "37.12", "description": "浏览器测试验证功能", "passes": false }
       ],
       "passes": false
     },
@@ -694,19 +662,15 @@
       "id": 38,
       "title": "工作流引擎 - 核心实现",
       "description": "实现工作流状态机引擎",
-      "steps": [
-        "创建 WorkflowDefinition 实体类",
-        "创建 WorkflowStatus 实体类",
-        "创建 WorkflowAction 实体类",
-        "创建 WorkflowTransition 实体类",
-        "创建 WorkflowInstance 实体类",
-        "创建 WorkflowEngine 核心引擎类",
-        "实现状态机初始化（加载状态和转换）",
-        "实现获取当前状态方法",
-        "实现获取可用动作方法",
-        "实现执行动作方法（状态转换）",
-        "实现状态回滚方法",
-        "编写测试验证引擎"
+      "subtasks": [
+        { "id": "38.1", "description": "创建工作流相关实体类", "passes": false },
+        { "id": "38.2", "description": "创建WorkflowEngine核心引擎类", "passes": false },
+        { "id": "38.3", "description": "实现状态机初始化（加载状态和转换）", "passes": false },
+        { "id": "38.4", "description": "实现获取当前状态方法", "passes": false },
+        { "id": "38.5", "description": "实现获取可用动作方法", "passes": false },
+        { "id": "38.6", "description": "实现执行动作方法（状态转换）", "passes": false },
+        { "id": "38.7", "description": "实现状态回滚方法", "passes": false },
+        { "id": "38.8", "description": "编写工作流引擎测试", "passes": false }
       ],
       "passes": false
     },
@@ -714,19 +678,17 @@
       "id": 39,
       "title": "工作流引擎 - API实现",
       "description": "实现工作流管理API",
-      "steps": [
-        "创建 WorkflowService 服务层",
-        "创建 WorkflowController 控制器",
-        "POST /api/workflows 创建工作流定义",
-        "GET /api/workflows 分页查询工作流",
-        "GET /api/workflows/{id} 获取工作流详情",
-        "PUT /api/workflows/{id} 更新工作流",
-        "DELETE /api/workflows/{id} 删除工作流",
-        "POST /api/workflows/{id}/statuses 添加状态",
-        "POST /api/workflows/{id}/actions 添加动作",
-        "POST /api/workflows/{id}/transitions 添加转换",
-        "GET /api/workflows/{id}/preview 预览工作流图",
-        "编写测试验证API"
+      "subtasks": [
+        { "id": "39.1", "description": "创建WorkflowService服务层", "passes": false },
+        { "id": "39.2", "description": "创建WorkflowController控制器", "passes": false },
+        { "id": "39.3", "description": "实现创建工作流定义API", "passes": false },
+        { "id": "39.4", "description": "实现分页查询工作流API", "passes": false },
+        { "id": "39.5", "description": "实现获取工作流详情API", "passes": false },
+        { "id": "39.6", "description": "实现更新工作流API", "passes": false },
+        { "id": "39.7", "description": "实现删除工作流API", "passes": false },
+        { "id": "39.8", "description": "实现添加状态、动作、转换API", "passes": false },
+        { "id": "39.9", "description": "实现预览工作流图API", "passes": false },
+        { "id": "39.10", "description": "编写工作流API测试", "passes": false }
       ],
       "passes": false
     },
@@ -734,13 +696,13 @@
       "id": 40,
       "title": "Nacos配置中心",
       "description": "配置Nacos作为配置中心和服务发现",
-      "steps": [
-        "编写 docker-compose.yml 启动Nacos",
-        "配置各服务的bootstrap.yml连接Nacos",
-        "将公共配置上传到Nacos（Redis、PostgreSQL等）",
-        "配置服务发现（各服务注册到Nacos）",
-        "配置动态刷新",
-        "编写测试验证配置"
+      "subtasks": [
+        { "id": "40.1", "description": "编写docker-compose.yml启动Nacos", "passes": false },
+        { "id": "40.2", "description": "配置各服务bootstrap.yml连接Nacos", "passes": false },
+        { "id": "40.3", "description": "将公共配置上传到Nacos", "passes": false },
+        { "id": "40.4", "description": "配置服务发现（各服务注册到Nacos）", "passes": false },
+        { "id": "40.5", "description": "配置动态刷新", "passes": false },
+        { "id": "40.6", "description": "编写测试验证配置", "passes": false }
       ],
       "passes": false
     },
@@ -748,14 +710,14 @@
       "id": 41,
       "title": "集成测试和文档",
       "description": "完成集成测试和API文档",
-      "steps": [
-        "编写各服务的集成测试",
-        "配置 Swagger/OpenAPI 文档聚合",
-        "编写 API 使用文档",
-        "编写部署文档",
-        "编写数据库迁移脚本使用说明",
-        "执行完整的端到端测试",
-        "性能测试（可选）"
+      "subtasks": [
+        { "id": "41.1", "description": "编写各服务的集成测试", "passes": false },
+        { "id": "41.2", "description": "配置Swagger/OpenAPI文档聚合", "passes": false },
+        { "id": "41.3", "description": "编写API使用文档", "passes": false },
+        { "id": "41.4", "description": "编写部署文档", "passes": false },
+        { "id": "41.5", "description": "编写数据库迁移脚本使用说明", "passes": false },
+        { "id": "41.6", "description": "执行完整的端到端测试", "passes": false },
+        { "id": "41.7", "description": "性能测试（可选）", "passes": false }
       ],
       "passes": false
     }
