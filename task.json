@@ -341,19 +341,19 @@
       ],
       "passes": true
     },
-    {
+{
       "id": 20,
       "title": "前端 - 布局框架",
-      "description": "实现主布局框架",
+      "description": "创建基础布局组件",
       "subtasks": [
-        { "id": "20.1", "description": "创建DefaultLayout.vue默认布局", "passes": false },
-        { "id": "20.2", "description": "创建Sidebar侧边栏组件（菜单、折叠）", "passes": false },
-        { "id": "20.3", "description": "创建Header头部组件（用户信息、登出、设置）", "passes": false },
-        { "id": "20.4", "description": "创建TagsView标签页组件", "passes": false },
-        { "id": "20.5", "description": "创建Footer底部组件", "passes": false },
-        { "id": "20.6", "description": "实现菜单动态渲染（根据权限）", "passes": false },
-        { "id": "20.7", "description": "实现面包屑导航", "passes": false },
-        { "id": "20.8", "description": "实现全屏切换", "passes": false }
+        { "id": "20.1", "description": "创建基础布局组件", "passes": true },
+        { "id": "20.2", "description": "创建菜单组件", "passes": true },
+        { "id": "20.3", "description": "创建面包屑组件", "passes": true },
+        { "id": "20.4", "description": "创建顶部导航栏组件", "passes": true },
+        { "id": "20.5", "description": "实现响应式布局", "passes": true },
+        { "id": "20.6", "description": "实现主题切换功能", "passes": true },
+        { "id": "20.7", "description": "实现布局配置持久化", "passes": true },
+        { "id": "20.8", "description": "编写布局组件测试", "passes": false }
       ],
       "passes": false
     },
