@@ -333,13 +333,13 @@
       "title": "前端 - 登录页面",
       "description": "实现登录页面UI和功能",
       "subtasks": [
-        { "id": "19.1", "description": "创建登录页面基础布局", "passes": false },
-        { "id": "19.2", "description": "创建LoginForm组件和表单验证", "passes": false },
-        { "id": "19.3", "description": "实现登录逻辑和API调用", "passes": false },
-        { "id": "19.4", "description": "实现登录失败处理和提示", "passes": false },
-        { "id": "19.5", "description": "实现响应式布局和样式美化", "passes": false }
+        { "id": "19.1", "description": "创建登录页面基础布局", "passes": true },
+        { "id": "19.2", "description": "创建LoginForm组件和表单验证", "passes": true },
+        { "id": "19.3", "description": "实现登录逻辑和API调用", "passes": true },
+        { "id": "19.4", "description": "实现登录失败处理和提示", "passes": true },
+        { "id": "19.5", "description": "实现响应式布局和样式美化", "passes": true }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 20,
