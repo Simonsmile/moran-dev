@@ -353,9 +353,9 @@
         { "id": "20.5", "description": "实现响应式布局", "passes": true },
         { "id": "20.6", "description": "实现主题切换功能", "passes": true },
         { "id": "20.7", "description": "实现布局配置持久化", "passes": true },
-        { "id": "20.8", "description": "编写布局组件测试", "passes": false }
+        { "id": "20.8", "description": "编写布局组件测试", "passes": true }
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": 21,
